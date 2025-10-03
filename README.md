@@ -1,5 +1,4 @@
-
- # 1. Definición de la función lambda para calcular el promedio
+# 1. Definición de la función lambda para calcular el promedio
 # Toma una lista de notas, suma sus valores, los divide por el número de notas
 # y redondea el resultado a 2 decimales.
 calcular_promedio = lambda notas: round(sum(notas) / len(notas), 2)
