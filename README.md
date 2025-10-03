@@ -1,38 +1,40 @@
-# PROMEDIO-DE-ESTUDIANTES
-REPOSITORIO PARA CALCULAR PROMEDIO DE NOTAS
-Versión interactiva para ejecutar localmente
-n_students = 5
-students = {}
-for i in range(n_students):
-    name = input(f"Nombre del estudiante {i+1}: ")
-    grades_str = input("Introduce las notas separadas por comas (ej. 85,90,78): ")
-    grades = [float(g.strip()) for g in grades_str.split(',') if g.strip() != ""]
-    students[name] = grades
 
-# Luego reutiliza la m# Calcular promedio con función lambda
-promedio = lambda notas: round(sum(notas) / len(notas), 2) if notas else 0
+ # 1. Definición de la función lambda para calcular el promedio
+# Toma una lista de notas, suma sus valores, los divide por el número de notas
+# y redondea el resultado a 2 decimales.
+calcular_promedio = lambda notas: round(sum(notas) / len(notas), 2)
 
-# Diccionario de estudiantes y sus notas
-estudiantes = dict([
-    ("Estudiante1", [8, 9, 7]),
-    ("Estudiante2", [7, 6, 8]),
-    ("Estudiante3", [10, 9, 9]),
-    ("Estudiante4", [5, 5, 6]),
-    ("Estudiante5", [10, 8, 10]),
-    ("Estudiante6", [5, 6, 7]),
-    ("Estudiante7", [8, 8, 9]),
-    ("Estudiante8", [7, 7, 8]),
-    ("Estudiante9", [9, 8, 10]),
-    ("Estudiante10", [6, 6, 7]),
-    ("Estudiante11", [10, 10, 9]),
-    ("Estudiante12", [8, 9, 8]),
-])
+# 2. Diccionario de estudiantes y sus notas (la estructura de datos)
+estudiantes = {
+    "Estudiante1": [8, 8.5, 7],
+    "Estudiante2": [10, 8, 9.5],
+    "Estudiante3": [10, 9, 9],
+    "Estudiante4": [7, 8.5, 8],
+    "Estudiante5": [10, 8, 10],
+    "Estudiante6": [5, 6, 7],
+    "Estudiante7": [8, 9.5, 9],
+    "Estudiante8": [7, 7, 8],
+    "Estudiante9": [9, 9, 10],
+    "Estudiante10": [6, 6, 7],
+    "Estudiante11": [10, 10, 9.5],
+    "Estudiante12": [9, 9, 8],
+}
 
-# Mostrar resultados en forma de tabla
-print("Promedios de los estudiantes".center(40, "-"))
-print(f"{'Nombre':<15}{'Promedio':>10}")
-print("-" * 25)
+# 3. Mostrar la cabecera del resultado en formato de tabla
+# El método .center() y los f-strings con alineación (< para izquierda, > para derecha)
+# se usan para crear la tabla.
 
+print("\n" + " PROMEDIOS DE LOS ESTUDIANTES ".center(40, "="))
+print(f'{"Nombre":<20}{"Promedio":>10}')
+print("=" * 30)
+
+# 4. Bucle para iterar y mostrar los resultados
 for nombre, notas in estudiantes.items():
-    print(f"{nombre:<15}{promedio(notas):>10.2f}")
- 
+    # Se llama a la función lambda 'calcular_promedio' con la lista de notas
+    promedio_final = calcular_promedio(notas)
+
+    # Se imprime el nombre (alineado a la izquierda en 20 espacios) y
+    # el promedio (alineado a la derecha en 10 espacios, con 2 decimales fijos)
+    print(f"{nombre:<20}{promedio_final :>10.2f}")
+
+print("=" * 30) 
