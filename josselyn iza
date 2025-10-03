@@ -1,0 +1,25 @@
+def calcular_promedio(notas):
+    return sum(notas) / len(notas) if notas else 0
+
+def main():
+    estudiantes = {
+        "Estudiante1": [10, 9, 7],
+        "Estudiante2": [10, 9, 8],
+        "Estudiante3": [10, 10, 9],
+        "Estudiante4": [10, 8, 10],
+        "Estudiante5": [8, 10, 10],
+        "Estudiante6": [10, 9, 10],
+        "Estudiante7": [9, 10, 7],
+        "Estudiante8": [7, 10, 8],
+        "Estudiante9": [8, 10, 10],
+        "Estudiante10": [10, 10, 9],
+        "Estudiante11": [9, 9, 10],
+        "Estudiante12": [10, 10, 9]
+    }
+
+    print("Promedios de los estudiantes:")
+    for nombre, notas in estudiantes.items():
+        print(f"{nombre}: {calcular_promedio(notas):.2b}")
+
+if __name__ == "__main__":
+    main()
